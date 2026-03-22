@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유럽 조사 프로젝트</title>
+
+<style>
+/* 배경 설정: 사진이 절대 잘리지 않도록 설정 */
+body {
+    background-color: #000; /* 사진 외 공간은 검은색 */
+    background-image: url("https://i.namu.wiki/i/nB-W2VhxwZ2ENKaybpAdSwNWvfwuWEdmgt_T0Wq17wZeQvUGDdfN3L7GAKR3wrQ_o8P5HGSfFOmoNeqxLuuIRlzmdIEpeCTXmIRvGMxtZ1K6GIHzn2fDvB4PvAhiy0uZJKDLI1x5F377Z3i8seja_Q.webp");
+    background-size: contain; /* 중요! 사진이 화면 안에 다 들어오게 함 */
+    background-repeat: no-repeat;
+    background-position: center; /* 가운데 정렬 */
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden; /* 배경은 고정 */
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+/* 메뉴 컨테이너: 캐릭터 얼굴을 피해서 오른쪽 하단에 배치 */
+.container {
+    position: absolute;
+    bottom: 30px; /* 아래쪽 여백 */
+    right: 30px;  /* 오른쪽 여백 */
+    width: 320px; /* 폭을 좁게 해서 세로형으로 */
+    max-height: 80vh; 
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.5); /* 메뉴 판을 반투명하게 */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 카드 및 아코디언 스타일 */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-btn {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+.accordion-btn::after { content: "+"; }
+.accordion-btn.active::after { content: "-"; }
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+    background: white;
+}
+
+.content-inner {
+    padding: 15px;
+    font-size: 13px;
+    color: #444;
+}
+
+.content-inner img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* 스크롤바 숨기기 */
+.container::-webkit-scrollbar { width: 0px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🇪🇺 유럽 조사 보고서</h1>
+
+    <div class="card">
+        <button class="accordion-btn">1. 자연 지리 환경</button>
+        <div class="accordion-content">
+            <div class="content-inner">
+                <img src="https://via.placeholder.com/300x150?text=Geography">
+                <p>유럽의 지형과 기후 조사 내용을 입력하세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <button class="accordion-btn">2. 민족 · 언어 · 문화</button>
+        <div class="accordion-content">
+            <div class="content-inner">
+                <p>민족과 언어 체계를 정리하세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <button class="accordion-btn">3. 역사</button>
+        <div class="accordion-content">
+            <div class="content-inner">
+                <p>유럽의 역사적 사건을 기록하세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <button class="accordion-btn">4. 정치 형태</button>
+        <div class="accordion-content">
+            <div class="content-inner">
+                <p>국가별 정치 체제입니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion-btn");
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+        });
+    }
+</script>
+
+</body>
+</html>
